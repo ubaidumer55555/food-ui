@@ -8,7 +8,15 @@ export const NavbarItems = () => {
   return (
     <>
       {items.map((item) => (
-        <Button key={item.key} sx={{ color: theme.palette.text.primary }}>
+        <Button
+          key={item.key}
+          sx={{
+            paddingLeft: "20px",
+            paddingRight: "20px",
+            fontWeight: "700",
+            color: theme.palette.text.primary,
+          }}
+        >
           {item.label}
         </Button>
       ))}

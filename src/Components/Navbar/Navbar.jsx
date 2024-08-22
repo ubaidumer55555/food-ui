@@ -1,23 +1,46 @@
 import { AppBar, Avatar, Toolbar, Box } from "@mui/material";
 import { NavbarItems } from "./Items";
-import logo from "../../assets/logo192.png";
+import logo from "../../assets/logo.png";
+import { styled } from "@mui/system";
 
-function Navbar() {
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  backgroundColor: theme.palette.secondary.main, // Set the background color here
+}));
+
+const StyledToolBar = styled(Toolbar)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+}));
+
+const Navbar = () => {
   return (
     <>
-      <AppBar position='relative'>
-        <Toolbar>
-          <Box>
-            <Avatar src={logo} />
+      <StyledAppBar position='relative'>
+        <StyledToolBar>
+          <Box
+            sx={{
+              marginLeft: "100px",
+              display: "flex",
+              justifyContent: "flex-start",
+            }}
+          >
+            <Avatar src={logo} sx={{ width: "94px", height: "56px" }} />
           </Box>
-          <Box>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
             <NavbarItems />
           </Box>
-          <Box>Search</Box>
-        </Toolbar>
-      </AppBar>
+          <Box
+            sx={{
+              marginRight: "100px",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          ></Box>
+        </StyledToolBar>
+      </StyledAppBar>
     </>
   );
-}
+};
 
 export default Navbar;
